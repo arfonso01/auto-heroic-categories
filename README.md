@@ -1,6 +1,6 @@
 # Auto Heroic Categories
 
-Auto Heroic Categories categories your games from the 'heroic game launcher \
+Auto Heroic Categories, automatically categorizes your games from the 'heroic game launcher \
 library' into custom categories using data from IGDB (Internet Game Database).
 
 ![](capture.gif)
