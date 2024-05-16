@@ -7,7 +7,7 @@ library' into custom categories using data from IGDB (Internet Game Database).
 
 ### Requirements
 * `sudo apt install wget git python3 python3-venv`.
-* `git clone https://github.com/x/x.git`. 
+* `git clone https://github.com/arfonso01/auto-heroic-categories.git`. 
 * You need the igdb api, you can get access by following the steps in this [link](https://api-docs.igdb.com/?getting-started#account-creation)
 
 ### Configuration
