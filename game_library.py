@@ -6,13 +6,13 @@ env=os.getenv
 
 load_dotenv()
 
-GOG_LIBRARY=env('PATHO') + env('GOG_LIBRARY')
-AMAZON_LIBRARY=env('PATHO') + env('AMAZON_LIBRARY')
-EPIC_LIBRARY=env('PATHO') + env('EPIC_LIBRARY')
+GOG_LIBRARY=os.path.join(env('PATHO'), env('GOG_LIBRARY'))
+AMAZON_LIBRARY=os.path.join(env('PATHO'), env('AMAZON_LIBRARY'))
+EPIC_LIBRARY=os.path.join(env('PATHO'), env('EPIC_LIBRARY'))
 
-GOG_LIBRARY=open(GOG_LIBRARY)
-AMAZON_LIBRARY=open(AMAZON_LIBRARY)
-EPIC_LIBRARY=open(EPIC_LIBRARY)
+GOG_LIBRARY=open(GOG_LIBRARY, encoding="utf8")
+AMAZON_LIBRARY=open(AMAZON_LIBRARY, encoding="utf8")
+EPIC_LIBRARY=open(EPIC_LIBRARY, encoding="utf8")
 
 library_dict={}
 
