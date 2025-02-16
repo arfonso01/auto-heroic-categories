@@ -6,18 +6,16 @@ from requests import post
 
 import get_token
 
-env = os.getenv
-
 load_dotenv()
-CLIENT_ID = env("CLIENT_ID")
+CLIENT_ID = os.getenv("CLIENT_ID")
 AUTHORIZATION = get_token.authorization()
 
 
 @lru_cache(maxsize=128)
-def category_dict():
+def modes_dict():
     my_dict = {}
     response = post(
-        "https://api.igdb.com/v4/genres",
+        "https://api.igdb.com/v4/game_modes",
         **{
             "headers": {
                 "Client-ID": f"{CLIENT_ID}",
