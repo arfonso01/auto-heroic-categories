@@ -13,6 +13,10 @@ if HEROIC_CONFIG is None:
 
 heroicConfigFile = open(HEROIC_CONFIG)
 heroicConfigJSON = json.load(heroicConfigFile)
+
+if heroicConfigJSON["games"].get("customCategories") is None:
+    heroicConfigJSON["games"]["customCategories"] = {}
+
 customCategoriesSet = set(heroicConfigJSON["games"]["customCategories"])
 
 for i in list(get_categories.category_dict().values()):
