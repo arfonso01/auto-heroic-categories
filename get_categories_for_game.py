@@ -8,14 +8,14 @@ import game_library
 import get_categories
 import get_token
 
-env = os.getenv
-
 load_dotenv()
-HEROIC_CONFIG = env("HEROIC_CONFIG")
-CLIENT_ID = env("CLIENT_ID")
+HEROIC_CONFIG = os.getenv("HEROIC_CONFIG")
+CLIENT_ID = os.getenv("CLIENT_ID")
 AUTHORIZATION = get_token.authorization()
 
-category_dict = {}
+if HEROIC_CONFIG is None:
+    raise Exception("Heroic config location is missing, please set it in the env file")
+
 heroicConfigFile = open(HEROIC_CONFIG)
 heroicConfigJSON = json.load(heroicConfigFile)
 
