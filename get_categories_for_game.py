@@ -16,11 +16,11 @@ CLIENT_ID = env("CLIENT_ID")
 AUTHORIZATION = get_token.authorization()
 
 category_dict = {}
-categories = open(HEROIC_CONFIG)
-data = json.load(categories)
+heroicConfigFile = open(HEROIC_CONFIG)
+heroicConfigJSON = json.load(heroicConfigFile)
 
-for app_name in game_library.library_dict:
-    url = "https://api.igdb.com/v4/games/?search=" + app_name + "&fields=id,name,genres"
+for game_name in game_library.library_dict:
+    url = f"https://api.igdb.com/v4/games/?search={game_name}&fields=id,name,genres"
     response = post(
         url,
         **{
@@ -36,14 +36,14 @@ for app_name in game_library.library_dict:
         for i in response.json()[0]["genres"]:
             if i in list(get_categories.category_dict().keys()):
                 if (
-                    game_library.library_dict[app_name]
-                    not in data["games"]["customCategories"][
+                    game_library.library_dict[game_name]
+                    not in heroicConfigJSON["games"]["customCategories"][
                         get_categories.category_dict()[i]
                     ]
                 ):
-                    data["games"]["customCategories"][
+                    heroicConfigJSON["games"]["customCategories"][
                         get_categories.category_dict()[i]
-                    ].append(game_library.library_dict[app_name])
+                    ].append(game_library.library_dict[game_name])
 
     except IndexError:
         continue
@@ -51,4 +51,4 @@ for app_name in game_library.library_dict:
         continue
 
 with open(HEROIC_CONFIG, "w") as json_file:
-    json.dump(data, json_file, indent=4, separators=(",", ": "))
+    json.dump(heroicConfigJSON, json_file, indent=4, separators=(",", ": "))
