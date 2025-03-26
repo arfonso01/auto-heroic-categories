@@ -35,7 +35,7 @@ def library(library,root_json: str):
 
         library.close()
     except KeyError as e:
-        print(e)
+        print("KeyError: "+str(e)+'. Game library likely not found.')
 
 library(GOG_LIBRARY, 'games')
 library(AMAZON_LIBRARY, 'library')
