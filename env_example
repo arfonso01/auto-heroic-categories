@@ -5,3 +5,5 @@ HEROIC_CONFIG='/home/yourUser/.var/app/com.heroicgameslauncher.hgl/config/heroic
 GOG_LIBRARY='gog_library.json'
 AMAZON_LIBRARY='nile_library.json'
 EPIC_LIBRARY='legendary_library.json'
+METACRITIC_ENABLED=False
+METACRITIC_REFRESH=False
