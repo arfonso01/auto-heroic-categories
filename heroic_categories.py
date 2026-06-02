@@ -9,6 +9,7 @@ HEROIC_CONFIG=env('HEROIC_CONFIG')
 
 custom_categories=open(HEROIC_CONFIG)
 data=json.load(custom_categories)
+data.setdefault('games', {}).setdefault('customCategories', {})
 set_data=set(data['games']['customCategories'])
 
 for i in list(get_categories.category_dict().values()):
